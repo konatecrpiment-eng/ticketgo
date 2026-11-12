@@ -19,7 +19,12 @@ final class Database
         if (str_starts_with($dsn, 'sqlite:') && !str_starts_with($dsn, 'sqlite::memory:')) {
             $file = substr($dsn, 7);
             if ($file[0] !== '/') {
-                $dsn = 'sqlite:' . ROOT_PATH . '/' . $file;
+                $file = ROOT_PATH . '/' . $file;
+                $dsn = 'sqlite:' . $file;
+            }
+            // Git ne versionne pas les dossiers vides : on crée storage/ au besoin
+            if (!is_dir(dirname($file))) {
+                mkdir(dirname($file), 0775, true);
             }
         }
         $pdo = new PDO($dsn, null, null, [
