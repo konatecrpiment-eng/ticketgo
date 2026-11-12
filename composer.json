@@ -1,0 +1,19 @@
+{
+  "name": "miage/ticketgo",
+  "description": "TicketGo : achat de billets de transport depuis chez soi (TD Projet Web MIAGE 2)",
+  "type": "project",
+  "require": {
+    "php": ">=8.1",
+    "ext-pdo": "*",
+    "ext-pdo_sqlite": "*"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.10"
+  },
+  "scripts": {
+    "init-db": "php database/init.php",
+    "start": "php -S localhost:8000 -t public",
+    "test": "php tests/run.php",
+    "lint": "phpcs --standard=phpcs.xml"
+  }
+}

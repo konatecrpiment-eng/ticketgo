@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wireframes basse fidélité — TicketGo</title>
+<style>
+  body { font-family: system-ui, sans-serif; background: #eceeed; margin: 0; padding: 24px; color: #222; }
+  h1 { margin-top: 0; }
+  .note { max-width: 760px; color: #555; }
+  .grid { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 24px; }
+  figure { margin: 0; }
+  figcaption { font-weight: 700; margin-bottom: 8px; }
+  .screen { width: 300px; min-height: 520px; background: #fff; border: 2px solid #333; border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 10px; font-size: 13px; }
+  .bar { display: flex; justify-content: space-between; border-bottom: 1px solid #999; padding-bottom: 8px; font-weight: 700; }
+  .box { border: 1.5px dashed #777; border-radius: 6px; padding: 8px; background: #f6f6f6; }
+  .input { border: 1.5px solid #555; border-radius: 4px; padding: 8px; color: #777; background: #fff; }
+  .btn { background: #333; color: #fff; text-align: center; padding: 10px; border-radius: 6px; font-weight: 700; }
+  .btn.alt { background: #fff; color: #333; border: 1.5px solid #333; }
+  .row { display: flex; justify-content: space-between; gap: 8px; align-items: center; }
+  .title { font-size: 16px; font-weight: 700; }
+  .muted { color: #777; }
+  .annot { margin-top: 8px; font-size: 12px; color: #a24b00; max-width: 300px; }
+</style>
+</head>
+<body>
+<h1>Wireframes basse fidélité — TicketGo</h1>
+<p class="note">Version mobile (usage principal). Les annotations en orange expliquent les choix d'ergonomie. Les maquettes haute fidélité à produire sur Figma doivent reprendre cette structure avec la charte : vert #0F7B4F, orange #F28C1B, fond #F6F8F7.</p>
+
+<div class="grid">
+
+<figure>
+<figcaption>1. Accueil / recherche</figcaption>
+<div class="screen">
+  <div class="bar"><span>TicketGo</span><span>Connexion</span></div>
+  <div class="title">Votre billet de bus, depuis votre canapé.</div>
+  <div class="box">
+    <div class="muted">Départ</div><div class="input">Abidjan ▾</div>
+    <div class="muted">Arrivée</div><div class="input">Choisir… ▾</div>
+    <div class="muted">Date</div><div class="input">12/11/2026</div>
+    <div class="btn" style="margin-top:8px">Rechercher</div>
+  </div>
+  <div class="title">Comment ça marche ?</div>
+  <div class="box">1. Cherchez · 2. Réservez · 3. Payez · 4. Voyagez</div>
+  <div class="title">Destinations populaires</div>
+  <div class="box row"><span>Abidjan → Bouaké</span><span>7 500 F</span></div>
+</div>
+<div class="annot">Formulaire en premier, prérempli : on peut chercher sans compte.</div>
+</figure>
+
+<figure>
+<figcaption>2. Résultats</figcaption>
+<div class="screen">
+  <div class="bar"><span>TicketGo</span><span>Mes billets</span></div>
+  <div class="title">Abidjan → Bouaké</div>
+  <div class="muted">12/11/2026 · Modifier la recherche</div>
+  <div class="box"><div class="row"><b>06h00 → 12h00</b><b>7 500 F</b></div>
+    <div class="muted">Savane Express · Standard · 32 places</div>
+    <div class="btn" style="margin-top:6px">Réserver</div></div>
+  <div class="box"><div class="row"><b>10h30 → 16h30</b><b>10 000 F</b></div>
+    <div class="muted">Lagune Transport · VIP · 12 places</div>
+    <div class="btn" style="margin-top:6px">Réserver</div></div>
+  <div class="box"><div class="row"><b>15h00 → 21h00</b><b>7 500 F</b></div>
+    <div class="muted">Complet</div></div>
+</div>
+<div class="annot">Prix, heures et places visibles d'un coup d'œil. Bouton remplacé par « Complet » si 0 place.</div>
+</figure>
+
+<figure>
+<figcaption>3. Réservation &amp; paiement</figcaption>
+<div class="screen">
+  <div class="bar"><span>TicketGo</span><span>Déconnexion</span></div>
+  <div class="title">Réserver votre voyage</div>
+  <div class="box">Abidjan → Bouaké<br><span class="muted">jeu. 12/11 à 06h00 · 7 500 F / passager</span></div>
+  <b>1. Passagers</b>
+  <div class="input">Passager 1 : nom complet</div>
+  <div class="btn alt">+ Ajouter un passager</div>
+  <b>2. Paiement Mobile Money</b>
+  <div class="row"><div class="box">Orange</div><div class="box">MTN</div><div class="box">Moov</div><div class="box">Wave</div></div>
+  <div class="input">Numéro à débiter</div>
+  <div class="row"><span>Total</span><b>7 500 FCFA</b></div>
+  <div class="btn">Payer et obtenir mon billet</div>
+</div>
+<div class="annot">Champs préremplis, total mis à jour en direct, mention « paiement simulé ».</div>
+</figure>
+
+<figure>
+<figcaption>4. Billet</figcaption>
+<div class="screen">
+  <div class="bar"><span>TicketGo</span><span>Mes billets</span></div>
+  <div class="box" style="background:#e9f6ef">Paiement confirmé ! Votre billet est prêt.</div>
+  <div class="box">
+    <div class="row"><b>TicketGo</b><b>VALIDE</b></div>
+    <div class="row" style="margin:10px 0"><div><small class="muted">Départ</small><br><b>Abidjan</b><br>06h00</div><b>→</b><div><small class="muted">Arrivée</small><br><b>Bouaké</b><br>12h00</div></div>
+    <div>Passager : Awa Koné — Siège 1</div>
+    <div class="box" style="text-align:center;margin-top:8px"><small class="muted">Code à présenter</small><br><b style="font-size:18px">TK-7039794F</b></div>
+  </div>
+  <div class="btn">Imprimer / enregistrer en PDF</div>
+  <div class="btn alt">Annuler le billet</div>
+</div>
+<div class="annot">Le code est l'élément principal. Annulation visible seulement si le délai le permet.</div>
+</figure>
+
+<figure>
+<figcaption>5. Mes billets</figcaption>
+<div class="screen">
+  <div class="bar"><span>TicketGo</span><span>Déconnexion</span></div>
+  <div class="title">Mes billets</div>
+  <div class="box"><div class="row"><b>Abidjan → Bouaké</b><span>Valide</span></div><div class="muted">12/11 06h00 · 1 passager · TK-7039794F</div></div>
+  <div class="box"><div class="row"><b>Bouaké → Abidjan</b><span>Annulé</span></div><div class="muted">20/11 15h00 · 2 passagers · TK-A18C03D2</div></div>
+  <div class="box"><div class="row"><b>Abidjan → Man</b><span>Voyage effectué</span></div><div class="muted">02/11 21h00 · 1 passager · TK-5E21B9F0</div></div>
+</div>
+<div class="annot">Un statut clair pour chaque billet ; un clic ouvre le billet.</div>
+</figure>
+
+<figure>
+<figcaption>6. Connexion / inscription</figcaption>
+<div class="screen">
+  <div class="bar"><span>TicketGo</span><span>Rechercher</span></div>
+  <div class="title">Créer un compte</div>
+  <div class="input">Nom complet</div>
+  <div class="input">Adresse e-mail</div>
+  <div class="input">Téléphone (Mobile Money)</div>
+  <div class="input">Mot de passe (8 car. min.)</div>
+  <div class="btn">Créer mon compte</div>
+  <div class="muted">Déjà inscrit ? Se connecter</div>
+</div>
+<div class="annot">4 champs seulement. Après connexion, retour automatique à la réservation.</div>
+</figure>
+
+</div>
+</body>
+</html>
