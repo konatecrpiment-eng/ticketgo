@@ -1,0 +1,16 @@
+# Déploiement sur hébergement mutualisé (Apache) : la racine web est ce dossier,
+# le site réel est dans public/ et le code sensible reste inaccessible.
+Options -Indexes
+DirectoryIndex index.php
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Interdire l'accès direct au code, aux données et aux fichiers de configuration
+  RewriteRule ^(src|templates|database|tests|storage|docs|vendor|\.git)(/|$) - [F,L]
+  RewriteRule ^(\.env.*|composer\..*|phpcs\.xml|README\.md|\.editorconfig|\.gitignore)$ - [F,L]
+
+  # Tout le reste est servi depuis public/
+  RewriteCond %{REQUEST_URI} !^/public/
+  RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
